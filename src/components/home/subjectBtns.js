@@ -9,16 +9,19 @@ const ChooseSubBtn = ({
   selectBtn,
   settestTime,
   testTime,
+  name,
+  selected,
+  setSelected,
 }) => {
-  const [selected, setselected] = useState(false);
   const style = {
     padding: `${px}rem ${py}rem`,
     fontSize: `${size}rem`,
   };
 
   const handleClick = () => {
-    selected ? setselected(false) : setselected(true);
-    selected ? settestTime(testTime - 60) : settestTime(testTime + 60);
+    setSelected(name);
+    // selected ? setselected(false) : setselected(true);
+    // selected ? settestTime(testTime - 60) : settestTime(testTime + 60);
   };
 
   return (
@@ -28,7 +31,7 @@ const ChooseSubBtn = ({
       className={`bordered-button ${bgClass}`}
     >
       <span> {text}</span>
-      {selected && selectBtn ? <i class='far fa-check-circle'></i> : ""}
+      {selected && selectBtn ? <i className='far fa-check-circle'></i> : ""}
     </button>
   );
 };

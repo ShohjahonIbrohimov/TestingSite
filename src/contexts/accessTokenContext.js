@@ -12,8 +12,7 @@ const AccessTokenContextProvider = (props) => {
   const [registered, setRegistered] = useState(null);
   const [riseUpAccess, setriseUpAccess] = useState(getlocalData());
   const [avatar, setAvatar] = useState(null);
-
-  console.log(riseUpAccess);
+  const [userRole, setuserRole] = useState(null);
 
   useEffect(() => {
     if (riseUpAccess === null) {
@@ -32,7 +31,6 @@ const AccessTokenContextProvider = (props) => {
 
   const authMe = () => {
     if (riseUpAccess) {
-      console.log(riseUpAccess.accessToken);
       axios
         .get("https://itriceapp.apicrm.online/api/auth/me", {
           headers: {
@@ -43,6 +41,8 @@ const AccessTokenContextProvider = (props) => {
         .then((res) => {
           console.log(res);
           let avatarUrl = res.data.avatar;
+          setuserRole(res.data.rolesUser[0].name);
+          console.log(userRole);
           setAvatar(avatarUrl);
         });
     }
@@ -57,6 +57,7 @@ const AccessTokenContextProvider = (props) => {
         avatar,
         setAvatar,
         authMe,
+        userRole,
         setriseUpAccess,
       }}
     >

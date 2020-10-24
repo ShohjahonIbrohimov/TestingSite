@@ -8,10 +8,6 @@ const StResultsContextProvider = (props) => {
   const [topTenSts, settopTenSts] = useState([]);
   const [topFiveSts, settopFiveSts] = useState([]);
 
-  const [currentUrl, setCurrentUrl] = useState(
-    "https://itriceapp.apicrm.online/api/riceapp/online/all"
-  );
-
   function compare(a, b) {
     const coefA = a.coeffiCient;
     const coefB = b.coeffiCient;
@@ -38,7 +34,7 @@ const StResultsContextProvider = (props) => {
   const getStResults = async () => {
     try {
       const res = await axios
-        .get(currentUrl, {
+        .get("https://itriceapp.apicrm.online/api/riceapp/online/all", {
           cancelToken: new axios.CancelToken((c) => (cancel = c)),
         })
         .then((res) => {
@@ -74,7 +70,7 @@ const StResultsContextProvider = (props) => {
     getStResults();
 
     return () => cancel();
-  }, [currentUrl]);
+  }, []);
 
   return (
     <StResultsContext.Provider value={{ topTenSts, topFiveSts, getStResults }}>

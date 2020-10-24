@@ -15,7 +15,7 @@ const MobileNav = ({ handleMNav, navOn }) => {
   return (
     <div className='mobile-nav' style={navStyle}>
       <div className='close-mnav' onClick={handleClick}>
-        <i class='fas fa-times'></i>
+        <i className='fas fa-times'></i>
       </div>
       <ul>
         <li onClick={handleClick}>

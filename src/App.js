@@ -11,6 +11,9 @@ import TestProcess from "./pages/TestProcess";
 import UserSettings from "./pages/UserSettings";
 import Login from "./pages/Login";
 import Centers from "./pages/Centers";
+import ChooseTestSubs from "./components/home/ChooseTestSubs";
+import CreateTest from "./pages/CreateTest";
+import TestCollections from "./pages/TestCollections";
 
 // css
 import "./styles/main.css";
@@ -19,30 +22,40 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StResultsContextProvider from "./contexts/StResultsContext";
 import TestResults from "./pages/TestResults";
 import AccessTokenContextProvider from "./contexts/accessTokenContext";
+import QuestionsContextProvider from "./contexts/QuestionsContext";
 
 function App() {
   return (
     <Router>
       <div className='App'>
-        <StResultsContextProvider>
-          <AccessTokenContextProvider>
-            <Navbar />
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/subjects' component={Subjects} />
-              <Route exact path='/universities' component={Universities} />
-              <Route exact path='/teachers' component={Teachers} />
-              <Route exact path='/centers' component={Centers} />
-              <Route exact path='/contact' component={Contact} />
-              <Route exact path='/registration' component={Registration} />
-              <Route exact path='/test' component={TestProcess} />
-              <Route exact path='/settings' component={UserSettings} />
-              <Route exact path='/results' component={TestResults} />
-              <Route exact path='/login' component={Login} />
-            </Switch>
-            <Footer />
-          </AccessTokenContextProvider>
-        </StResultsContextProvider>
+        <QuestionsContextProvider>
+          <StResultsContextProvider>
+            <AccessTokenContextProvider>
+              <Navbar />
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/subjects' component={Subjects} />
+                <Route exact path='/universities' component={Universities} />
+                <Route exact path='/teachers' component={Teachers} />
+                <Route exact path='/centers' component={Centers} />
+                <Route exact path='/contact' component={Contact} />
+                <Route exact path='/registration' component={Registration} />
+                <Route exact path='/test' component={TestProcess} />
+                <Route exact path='/settings' component={UserSettings} />
+                <Route exact path='/results' component={TestResults} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/choose' component={ChooseTestSubs} />
+                <Route exact path='/create-test' component={CreateTest} />
+                <Route
+                  exact
+                  path='/test-collections'
+                  component={TestCollections}
+                />
+              </Switch>
+              <Footer />
+            </AccessTokenContextProvider>
+          </StResultsContextProvider>
+        </QuestionsContextProvider>
       </div>
     </Router>
   );

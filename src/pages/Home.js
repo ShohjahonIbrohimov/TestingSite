@@ -22,33 +22,18 @@ const Home = () => {
   let showcaseText =
       "React will automatically append a “px” suffix to certain numeric inline style properties. If you want to use units other than ",
     btnText1 = "Test ishlash",
-    btnText2 = "Ro'yxatdan o'tish";
+    btnText2 = "Ro'yxatdan o'tish",
+    btnText3 = "Test yaratish";
 
   return (
     <div className='home-page'>
-      <Router>
-        <Switch
-          atEnter={{ opacity: 0 }}
-          atLeave={{ opacity: 0 }}
-          atActive={{ opacity: 1 }}
-          className='switch-wrapper'
-        >
-          <Route exact path='/choose' component={ChooseTestSubs} />
-          <Route
-            exact
-            path='/'
-            render={() => (
-              <Showcase
-                bgName={"home"}
-                text={showcaseText}
-                btnText1={btnText1}
-                btnText2={btnText2}
-              />
-            )}
-          />
-        </Switch>
-      </Router>
-
+      <Showcase
+        bgName={"home"}
+        text={showcaseText}
+        btnText1={btnText1}
+        btnText2={btnText2}
+        btnText3={btnText3}
+      />
       <CarouselUnivers />
       <TopBoard />
       <Video />

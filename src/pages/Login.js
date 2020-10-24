@@ -26,6 +26,7 @@ const Registration = () => {
         password: values.password,
       })
       .then((res) => {
+        console.log(res);
         setloading(false);
         let data = res.data;
         registerUser();

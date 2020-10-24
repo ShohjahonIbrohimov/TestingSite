@@ -1,0 +1,24 @@
+.create-test {
+  width: 60%;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-test .ant-input,
+.create-test .ant-select {
+  margin-bottom: 1rem;
+}
+
+.create-test .ant-input:first-child {
+  margin-bottom: 4rem;
+  height: 100px;
+}
+
+.create-test .ant-btn {
+  padding: 1.5rem 3rem;
+  border-radius: 30px;
+  background-color: #50c97d;
+  border-color: #50c97d;
+}

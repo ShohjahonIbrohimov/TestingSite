@@ -80,6 +80,11 @@
   background-color: #50c97d;
 }
 
+.uzbGreen:hover,
+.uzbGreen:focus {
+  background-color: #46b36e;
+}
+
 .bordered-button .fa-check-circle {
   margin-left: 1rem;
 }

@@ -1,331 +1,7 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 export const QuestionsContext = createContext();
-
-const major = {
-  major: "Informtika va Axborot Texnologiyalari",
-  subjects: ["MATEMATIKA", "FIZIKA", "INGLIZ TILI"],
-  tests: {
-    math: [
-      {
-        number: 1,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "A",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-      {
-        number: 2,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "B",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-      {
-        number: 3,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "C",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-      {
-        number: 4,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "A",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-      {
-        number: 5,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "B",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-      {
-        number: 6,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "D",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-      {
-        number: 7,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "D",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-      {
-        number: 8,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "A",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-      {
-        number: 9,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "B",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-      {
-        number: 10,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "D",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-      {
-        number: 11,
-        blok: "MATEMATIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "D",
-        field: "Informtika va Axborot Texnologiyalari",
-        selected: "",
-      },
-    ],
-    physics: [
-      {
-        number: 1,
-        blok: "FIZIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "A",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-      {
-        number: 2,
-        blok: "FIZIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "B",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-      {
-        number: 3,
-        blok: "FIZIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "C",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-      {
-        number: 1,
-        blok: "FIZIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "A",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-      {
-        number: 2,
-        blok: "FIZIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "B",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-      {
-        number: 6,
-        blok: "FIZIKA",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "D",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-    ],
-    english: [
-      {
-        number: 1,
-        blok: "ENGLISH",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "A",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-      {
-        number: 2,
-        blok: "ENGLISH",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "B",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-      {
-        number: 3,
-        blok: "ENGLISH",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "C",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-      {
-        number: 1,
-        blok: "ENGLISH",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "A",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-      {
-        number: 2,
-        blok: "ENGLISH",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "B",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-      {
-        number: 6,
-        blok: "ENGLISH",
-        question: "img",
-        answers: {
-          A: "ans1",
-          B: "ans2",
-          C: "ans3",
-          D: "ans4",
-        },
-        correctAns: "D",
-        field: "Informtika va Axborot Texnologiyalari",
-      },
-    ],
-  },
-};
-
-let subjects = major.subjects;
 
 const QuestionsContextProvider = (props) => {
   const [mathQuestions, setMathQuestions] = useState([
@@ -751,6 +427,13 @@ const QuestionsContextProvider = (props) => {
     },
   ]);
 
+  const [tests, settests] = useState(null);
+  const [test, settest] = useState({});
+  const [url, seturl] = useState(
+    "https://itriceapp.apicrm.online/api/start/english"
+  );
+  const [selectedSubject, setselectedSubject] = useState("english");
+
   const setSelectedChoice = (letter, qnum) => {
     if (mathQuestions[qnum - 1].selected === letter) {
       const copyMathQuestions = mathQuestions.slice();
@@ -769,9 +452,29 @@ const QuestionsContextProvider = (props) => {
     }
   };
 
+  const changeUrl = () => {
+    seturl(`https://itriceapp.apicrm.online/api/start/${selectedSubject}`);
+  };
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      const res = await axios.get(url);
+      settests(res.data.test);
+    };
+
+    fetchdata();
+  }, [url]);
+
   return (
     <QuestionsContext.Provider
-      value={{ mathQuestions, setSelectedChoice, subjects }}
+      value={{
+        mathQuestions,
+        setSelectedChoice,
+        tests,
+        settests,
+        changeUrl,
+        setselectedSubject,
+      }}
     >
       {props.children}
     </QuestionsContext.Provider>

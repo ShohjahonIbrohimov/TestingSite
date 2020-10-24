@@ -1,16 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { StResultsContext } from "../../contexts/StResultsContext";
 import TopboardCrown from "../home/TopboardCrown";
 import StudentInfo from "../home/StudentInfo";
 import Timer from "./Countdown";
 
 const TestHeader = () => {
-  // const { topFiveSts, getStResults } = useContext(StResultsContext);
-
-  // let stInfo = topFiveSts[0];
-
-  // const { image, name, surname, top, city } = stInfo;
-
   return (
     <div className='test-header'>
       <div className='about-student'>

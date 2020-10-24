@@ -32,5 +32,8 @@ a {
 @import "./login/Login.css";
 /* Centers */
 @import "./centers/Center.css";
-
+/* CreateTest */
+@import "./createTest/CreateTest.css";
+/* TestCollections */
+@import "./testCollections/TestCollection.css";
 @import "./MediaQuiries.css";

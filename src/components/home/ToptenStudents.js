@@ -13,7 +13,7 @@ const ToptenStudents = () => {
         {topTenSts.map((st) => {
           return (
             <ToptenStudent
-              key={st.id}
+              key={st._id}
               imgUrl={st.image}
               place={st.top}
               name={`${st.name} ${st.surname}`}

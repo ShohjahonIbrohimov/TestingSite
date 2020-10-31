@@ -1,14 +1,23 @@
-import React from "react";
-import TestHeader from "../components/testprocess/TestHeader";
+import React, { useContext } from "react";
 import QuestionArea from "../components/testprocess/QuestionArea";
 import TestButtons from "../components/testprocess/TestButtons";
+import TakenTests from "../components/testprocess/TakenTests";
+import TestResult from "../components/testprocess/TestResult";
+
+import { TestResultContext } from "../contexts/TestResultContext";
 
 const TestProcess = () => {
+  const { calculated } = useContext(TestResultContext);
   return (
     <div className='container'>
       <div className='test-process'>
         <QuestionArea />
-        <TestButtons />
+        {calculated && (
+          <div>
+            <TestResult />
+            <TakenTests />
+          </div>
+        )}
       </div>
     </div>
   );

@@ -3,15 +3,18 @@ import PageTitle from "../global/PageTitle";
 import ChooseSubBtn from "./subjectBtns";
 import Button from "../global/Button";
 import { QuestionsContext } from "../../contexts/QuestionsContext";
+import { LoaderContext } from "../../contexts/LoaderContext";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 const ChooseTestSubs = () => {
+  const { setloading } = useContext(LoaderContext);
   const [redirect, setredirect] = useState(false);
-  const { settests, tests, changeUrl, setselectedSubject } = useContext(
-    QuestionsContext
+  const [selectedSubject, setselectedSubject] = useState("english");
+  const [url, seturl] = useState(
+    "https://itriceapp.apicrm.online/api/start/undefined"
   );
-  const [testTime, settestTime] = useState(0);
+  const { settests } = useContext(QuestionsContext);
 
   const [english, setenglish] = useState(false);
   const [math, setmath] = useState(false);
@@ -54,7 +57,28 @@ const ChooseTestSubs = () => {
     }
   };
 
+  const changeUrl = () => {
+    seturl(`https://itriceapp.apicrm.online/api/start/${selectedSubject}`);
+  };
+
+  useEffect(() => {
+    console.log(url);
+    const fetchdata = async () => {
+      const res = await axios.get(url);
+
+      try {
+        settests(res.data.test);
+        setloading(false);
+      } catch {
+        console.log(res);
+      }
+    };
+
+    fetchdata();
+  }, [url]);
+
   const handleClick = () => {
+    setloading(true);
     changeUrl();
     setredirect(true);
   };
@@ -68,7 +92,6 @@ const ChooseTestSubs = () => {
             <ChooseSubBtn
               key={s.eng}
               setSelected={setSelected}
-              testTime={testTime}
               text={s.uzb}
               name={s.eng}
               bgClass='darkBlueBtn'

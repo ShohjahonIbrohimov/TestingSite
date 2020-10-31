@@ -12,9 +12,14 @@
   justify-content: center;
   flex-wrap: wrap;
   padding: 8rem 3rem;
+}
+
+.teachers-list-wrapper {
   background-image: url("../../assets/teachers/teachersBg.png");
   background-position: center;
-  background-size: cover;
+  background-size: 1453px;
+  background-repeat: no-repeat;
+  background-position: 50% 560px;
 }
 
 .teacher-card {

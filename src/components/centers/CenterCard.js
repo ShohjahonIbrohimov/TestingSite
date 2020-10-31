@@ -1,4 +1,4 @@
-import React, { useHistory } from "react";
+import React from "react";
 import Button from "../global/Button";
 import RoundPic from "../global/RoundPic";
 import { Link } from "react-router-dom";

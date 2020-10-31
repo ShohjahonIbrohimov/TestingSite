@@ -1,0 +1,36 @@
+.test-process .ant-table-wrapper {
+  overflow-x: auto;
+}
+
+.test-process table {
+  min-width: 983px;
+}
+
+.test-result {
+  text-align: center;
+}
+
+.test-result h1 {
+  margin-bottom: 1rem;
+}
+
+.test-result table {
+  /* border: 1px solid #f1aba3; */
+}
+
+.test-result td,
+.test-result th {
+  font-size: 1rem;
+  padding: 8px;
+  text-align: center;
+  color: var(--secondary-color);
+  color: #e09087;
+}
+
+/* .test-result th:nth-child(odd) {
+  color: #ffffff;
+}
+
+.test-result th:nth-child(even) {
+  color: #fff;
+} */

@@ -6,6 +6,10 @@ a {
   text-decoration: none;
 }
 
+.page-wrapper {
+  min-height: 100vh;
+}
+
 /* Global */
 @import "./global/Global.css";
 /* Home */

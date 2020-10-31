@@ -1,7 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { QuestionsContext } from "../../contexts/QuestionsContext";
 
-const Option = ({ country, name, question, checked, handleChecked, qnum }) => {
+const Option = ({
+  country,
+  name,
+  question,
+  checked,
+  handleChecked,
+  qnum,
+  choice,
+}) => {
   const { setSelectedChoice } = useContext(QuestionsContext);
   const handleClick = (name) => {
     handleChecked(name);
@@ -24,11 +32,7 @@ const Option = ({ country, name, question, checked, handleChecked, qnum }) => {
           />
         </div>
       )}
-      <div className=''>
-        {question && (
-          <img src={require(`../../assets/testprocess/answer.png`)} alt='' />
-        )}
-      </div>
+      <div className=''>{question && <p>{choice}</p>}</div>
       {!question && <p>{name}</p>}
     </div>
   );

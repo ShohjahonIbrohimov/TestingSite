@@ -5,6 +5,7 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 550px));
   /* grid-template-rows: auto auto auto; */
   /* border: 2px solid red; */
+  margin: 2rem 0;
 }
 
 .univer-list-item {

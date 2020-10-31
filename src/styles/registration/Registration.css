@@ -5,6 +5,7 @@
 
 .register-page .regbg,
 .login-page .regbg {
+  max-height: 455px;
   height: 80vh;
   background-image: url("../../assets/register/registerBg.png");
   background-position: center;
@@ -153,9 +154,8 @@
 }
 
 .ant-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: unset;
+  font-size: 1.1rem;
 }
 
 .register-page .ant-col-16 {
@@ -182,8 +182,8 @@
   -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
   border-radius: 30px;
-  padding: 1.5rem 1.8rem;
-  font-size: 1.1rem;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
 }
 
 .register-page .ant-btn-primary:hover,

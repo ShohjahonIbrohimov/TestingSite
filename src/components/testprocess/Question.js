@@ -2,11 +2,16 @@ import React from "react";
 import QuestionNumber from "./QuestionNumber";
 import QuestionItself from "./QuestionItself";
 
-const Question = ({ qnum }) => {
+const Question = ({ qnum, question, answers, next }) => {
   return (
     <div className='question'>
       <QuestionNumber num={qnum} />
-      <QuestionItself qnum={qnum} />
+      <QuestionItself
+        qnum={qnum}
+        question={question}
+        answers={answers}
+        next={next}
+      />
     </div>
   );
 };

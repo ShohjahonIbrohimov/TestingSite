@@ -1,6 +1,40 @@
 .questions {
+  position: relative;
   padding: 2rem 0;
+  overflow-x: auto;
   /* border-top: 2px solid var(--secondary-color); */
+}
+
+.questions .slide-indicator {
+  position: absolute;
+  top: 0;
+  display: none;
+}
+
+.questions .slide-indicator img {
+  width: 50px;
+  transform: translateX(150%);
+  webkit-animation: slide 1s 10;
+  animation: slide 1s 10;
+
+  /* animation-iteration-count: 5;
+  /* visibility: visible; */
+  opacity: 0;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(150%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 0;
+  }
+}
+
+.tests-by-major {
+  min-width: 983px;
 }
 
 .question-area {
@@ -14,6 +48,7 @@
 }
 
 .question-itself {
+  width: 80%;
   padding: 0.5rem 3rem;
   display: flex;
   flex-direction: column;

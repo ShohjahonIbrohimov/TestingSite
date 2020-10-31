@@ -58,20 +58,36 @@
   height: 350px;
   background-position: center;
   background-size: cover;
+  margin-bottom: 2rem;
+}
+
+.center {
+  margin: 8rem 0;
 }
 
 .center header {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.center header .brief-about-center {
+  /* align-self: flex-end; */
+  justify-self: flex-end;
 }
 
 .center header .brief-about-center {
   width: 50%;
+  margin-bottom: 2rem;
+}
+
+.center header .brief-about-center .bordered-button {
+  margin-top: 2rem;
 }
 
 .center h1 {
   color: #ffc422;
-  margin-bottom: 0.7rem;
+  /* margin-bottom: 0.7rem; */
 }
 
 .center header,
@@ -79,4 +95,25 @@
 .center .courses-in-center,
 .center .center-entrance-exams {
   margin-bottom: 2rem;
+}
+
+.stars-cont {
+  display: flex;
+  align-items: center;
+}
+
+.stars-cont i {
+  font-size: 1.1rem;
+}
+
+.stars-cont .stars {
+  margin-left: 1rem;
+}
+
+.centers-page .position-in-site {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: #ffbd07;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
 }

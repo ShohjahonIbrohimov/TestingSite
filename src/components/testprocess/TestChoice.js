@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import CircleChoice from "./CircleChoice";
 import { QuestionsContext } from "../../contexts/QuestionsContext";
-import { SelectedContext } from "../../contexts/SelectedContext";
 
 const TestChoice = ({ num }) => {
   const { mathQuestions } = useContext(QuestionsContext);

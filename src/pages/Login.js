@@ -1,9 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
-import Button from "../components/global/Button";
-import RegisterForm from "../components/register/RegisterForm";
-import Switches from "../components/register/Switches";
-import AntForm from "../components/register/AntForm";
 import axios from "axios";
 import LoginForm from "./LoginForm";
 import { message } from "antd";
@@ -14,25 +10,21 @@ import { AcessTokenContext } from "../contexts/accessTokenContext";
 const Registration = () => {
   const [redirect, setredirect] = useState(false);
   const [loading, setloading] = useState(false);
-  const { registerUser, riseUpAccess, setriseUpAccess } = useContext(
-    AcessTokenContext
-  );
+  const { setRegistered, setriseUpAccess } = useContext(AcessTokenContext);
 
   const authenticateUser = (values) => {
-    console.log(values);
     axios
       .post("https://itriceapp.apicrm.online/api/auth/signin ", {
         email: values.email,
         password: values.password,
       })
       .then((res) => {
-        console.log(res);
         setloading(false);
         let data = res.data;
-        registerUser();
-        setredirect(true);
-        localStorage.setItem("riseUpAccess", JSON.stringify(data));
         setriseUpAccess(data);
+        localStorage.setItem("riseUpAccess", JSON.stringify(data));
+        setRegistered(true);
+        setredirect(true);
       })
       .catch((err) => {
         setloading(false);

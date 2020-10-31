@@ -37,3 +37,9 @@
     width: 95%;
   }
 }
+
+@media (max-width: 1128px) {
+  .center header .brief-about-center {
+    width: 100%;
+  }
+}

@@ -1,0 +1,21 @@
+.profile-drop-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-drop-item span {
+  width: 70%;
+  text-align: start;
+}
+
+.profile-drop-item i {
+  color: var(--secondary-color);
+}
+
+/* .profile-drop-item i {
+  margin-right: 0.5rem;
+} */
+
+.profile-drop {
+  width: 120px;
+}

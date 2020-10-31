@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 // dependencies
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -17,13 +17,16 @@ import { AcessTokenContext } from "../contexts/accessTokenContext";
 const Home = () => {
   const { authMe } = useContext(AcessTokenContext);
 
-  authMe();
+  useEffect(() => {
+    authMe();
+  }, []);
 
   let showcaseText =
       "React will automatically append a “px” suffix to certain numeric inline style properties. If you want to use units other than ",
     btnText1 = "Test ishlash",
     btnText2 = "Ro'yxatdan o'tish",
-    btnText3 = "Test yaratish";
+    btnText3 = "Test yaratish",
+    btnText4 = "O'quv markaz haqida ma'lumot qo'shish";
 
   return (
     <div className='home-page'>
@@ -33,6 +36,7 @@ const Home = () => {
         btnText1={btnText1}
         btnText2={btnText2}
         btnText3={btnText3}
+        btnText4={btnText4}
       />
       <CarouselUnivers />
       <TopBoard />

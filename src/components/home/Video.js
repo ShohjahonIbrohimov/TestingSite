@@ -9,7 +9,7 @@ const Video = () => {
         <Player
           playsInline
           poster='https://storage.kun.uz/source/TRINUNA/KUN/54872136548972-4.jpg'
-          src='https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
+          src='#'
         >
           <img
             className='videoBg'

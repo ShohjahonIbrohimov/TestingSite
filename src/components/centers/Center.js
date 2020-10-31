@@ -14,13 +14,15 @@ const Center = (centers, routerProps) => {
         <header>
           <div className='center-img'></div>
           <div className='brief-about-center'>
-            <h1>{center[0].fullname}</h1>
-            <div className='stars'>
-              <i className='far fa-star'></i>
-              <i className='far fa-star'></i>
-              <i className='far fa-star'></i>
+            <div className='stars-cont'>
+              <h1>{center[0].fullname}</h1>
+              <div className='stars'>
+                <i className='far fa-star'></i>
+                <i className='far fa-star'></i>
+                <i className='far fa-star'></i>
+              </div>
             </div>
-            <span>SAYTDA 1-RAQAMLI</span>
+            <span className='position-in-site'>SAYTDA 1-RAQAMLI</span>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Consequuntur minus mollitia, nam ipsum doloremque accusamus

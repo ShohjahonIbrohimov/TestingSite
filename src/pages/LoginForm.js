@@ -13,7 +13,6 @@ const LoginForm = ({ authenticateUser, loading, setloading }) => {
 
   const onFinish = (values) => {
     setloading(true);
-    console.log("Finish:", values);
     authenticateUser(values);
   };
 

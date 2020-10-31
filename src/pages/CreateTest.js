@@ -11,7 +11,7 @@ const { Option } = Select;
 
 const CreateTest = () => {
   const [loading, setloading] = useState(false);
-  const { riseUpAccess } = useContext(AcessTokenContext);
+  const { riseUpAccess, specialisation } = useContext(AcessTokenContext);
   const [numberOfQuestions, setnumberOfQuestions] = useState(1);
   const placeholders = ["A", "B", "C", "D"];
   const [question, setquestion] = useState("");
@@ -65,7 +65,12 @@ const CreateTest = () => {
       .post(
         "https://itriceapp.apicrm.online/api/start/create",
         {
-          Direction: "english",
+          Direction:
+            specialisation === "Matematika"
+              ? "math"
+              : specialisation === "Igliz tili"
+              ? "english"
+              : "physics",
           number: numberOfQuestions,
           question: question,
           answers: {

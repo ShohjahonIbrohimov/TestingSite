@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Button, DatePicker, Checkbox, Select } from "antd";
+import { Form, Input, Button, DatePicker, Select } from "antd";
 const layout = {
   labelCol: {
     span: 8,
@@ -171,7 +171,7 @@ const AntForm = ({ teacher, center, student, getInputs }) => {
 
       <Form.Item className='register-btn-wrapper' {...tailLayout}>
         <Button type='primary' htmlType='submit' loading={loading}>
-          Ro'rxatdan o'tish
+          Ro'yxatdan o'tish
         </Button>
       </Form.Item>
     </Form>

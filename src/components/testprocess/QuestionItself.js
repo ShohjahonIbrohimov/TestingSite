@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Radios from "../subjects/Radios";
 
-const QuestionItself = ({ qnum }) => {
+const QuestionItself = ({ qnum, question, answers, next }) => {
   return (
     <div className='question-itself'>
-      <img src={require("../../assets/testprocess/mathProblem.png")} alt='' />
-      <Radios qnum={qnum} />
+      <p>{question}</p>
+      <Radios answers={answers} qnum={qnum} next={next} />
     </div>
   );
 };

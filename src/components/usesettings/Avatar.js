@@ -22,14 +22,12 @@ const Avatar = () => {
   const { setAvatar, riseUpAccess, avatar } = useContext(AcessTokenContext);
 
   const handleChange = (info) => {
-    console.log(info.file);
     if (info.file.status === "uploading") {
       setimg({ loading: true });
       return;
     }
     if (info.file.status === "done") {
       // Get this url from response in real world.
-      console.log(info.file);
       //   setfile({ file: e.target.files[0] });
     }
   };
@@ -43,7 +41,6 @@ const Avatar = () => {
   );
 
   const postData = (file) => {
-    console.log(file);
     const formData = new FormData();
     formData.append("photo", file.file);
     axios
@@ -52,12 +49,12 @@ const Avatar = () => {
       })
       .then((res) => {
         const data = res.data;
-        console.log(res.data);
+
         setimg({ imageUrl: data.url, loading: false });
         setAvatar(data.url);
       })
       .catch((error) => {
-        console.log(error);
+        // Display error
       });
   };
   return (

@@ -10,7 +10,15 @@ import teacherTextBg from "../../assets/teachers/teacherTextBg.png";
 import contactBg from "../../assets/global/showcasBg-contact.png";
 import { AcessTokenContext } from "../../contexts/accessTokenContext";
 
-const Showcase = ({ bgName, title, text, btnText1, btnText2, btnText3 }) => {
+const Showcase = ({
+  bgName,
+  title,
+  text,
+  btnText1,
+  btnText2,
+  btnText3,
+  btnText4,
+}) => {
   const { registered, userRole } = useContext(AcessTokenContext);
 
   const bgStyles = {
@@ -55,6 +63,11 @@ const Showcase = ({ bgName, title, text, btnText1, btnText2, btnText3 }) => {
             {registered && userRole === "teacher" && (
               <Link to='/create-test'>
                 {btnText3 && <Button text={btnText3} bgClass={"blueBtn"} />}
+              </Link>
+            )}
+            {registered && userRole === "educational" && (
+              <Link to='/create-test'>
+                {btnText4 && <Button text={btnText4} bgClass={"greenBtn"} />}
               </Link>
             )}
             {!registered && (

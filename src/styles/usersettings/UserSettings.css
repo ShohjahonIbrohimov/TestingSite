@@ -2,6 +2,17 @@
   margin-top: -49px;
 }
 
+.chage-password {
+  margin-top: 1rem;
+  color: #925255;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.chage-password:hover {
+  color: #7c4649;
+}
+
 .user-settings .regbg {
   background-image: url("../../assets//userSettings/userSettingsBg.png");
 }

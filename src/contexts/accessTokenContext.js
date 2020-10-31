@@ -9,13 +9,17 @@ const getlocalData = () => {
 };
 
 const AccessTokenContextProvider = (props) => {
-  const [registered, setRegistered] = useState(null);
+  const [registered, setRegistered] = useState(false);
   const [riseUpAccess, setriseUpAccess] = useState(getlocalData());
   const [avatar, setAvatar] = useState(null);
   const [userRole, setuserRole] = useState(null);
+  const [specialisation, setspecialisation] = useState("");
+  const [studentID, setstudentID] = useState("");
+  const [userInfo, setuserInfo] = useState({})
 
   useEffect(() => {
     if (riseUpAccess === null) {
+      console.log("happened");
       setRegistered(false);
     } else if (
       riseUpAccess.api === "IT RISE UP" &&
@@ -23,11 +27,7 @@ const AccessTokenContextProvider = (props) => {
     ) {
       setRegistered(true);
     }
-  }, [riseUpAccess]);
-
-  const registerUser = () => {
-    setRegistered(true);
-  };
+  }, []);
 
   const authMe = () => {
     if (riseUpAccess) {
@@ -39,11 +39,20 @@ const AccessTokenContextProvider = (props) => {
           "Content-Type": "application/json",
         })
         .then((res) => {
-          console.log(res);
+          console.log(res.data);
+          const data = res.data;
           let avatarUrl = res.data.avatar;
           setuserRole(res.data.rolesUser[0].name);
-          console.log(userRole);
+          setspecialisation(res.data.specialisation);
           setAvatar(avatarUrl);
+          setstudentID(res.data._id);
+          setuserInfo({
+            name: data.name,
+            surname: data.surname,
+            email: data.email,
+            birthdate: data.birthdate,
+
+          })
         });
     }
   };
@@ -52,13 +61,16 @@ const AccessTokenContextProvider = (props) => {
     <AcessTokenContext.Provider
       value={{
         registered,
-        registerUser,
         riseUpAccess,
         avatar,
         setAvatar,
         authMe,
         userRole,
         setriseUpAccess,
+        specialisation,
+        studentID,
+        setRegistered,
+        userInfo,
       }}
     >
       {props.children}

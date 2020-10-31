@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Button from "../components/global/Button";
-import RegisterForm from "../components/register/RegisterForm";
+import React, { useState } from "react";
 import Switches from "../components/register/Switches";
 import AntForm from "../components/register/AntForm";
-import axios from "axios";
 import { Redirect } from "react-router-dom";
 
 import "antd/dist/antd.css";
@@ -72,7 +69,6 @@ const Registration = () => {
     })
       .then((res) => res.json())
       .then((apiRes) => {
-        console.log(apiRes);
         setRedirect();
       });
   };

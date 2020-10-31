@@ -16,9 +16,15 @@
   .registration .register-img {
     display: none;
   }
-  .register-page .registration form {
+  .registration form {
     width: 100%;
   }
+
+  .registration {
+    padding: 2rem;
+  }
+
+  /* .registration form */
 
   .topten-card {
     flex-direction: column;
@@ -37,7 +43,7 @@
   .notHome {
     justify-content: flex-start;
     background-size: 60%;
-    background-position: 50% 90%;
+    background-position: 50% 97px;
   }
 
   .showcase {
@@ -58,6 +64,11 @@
 }
 
 @media (max-width: 560px) {
+  .questions .slide-indicator {
+    display: block;
+  }
+
+  .prezwords-reg .container,
   .register-page .container,
   .user-settings .container {
     width: 96%;
@@ -170,7 +181,7 @@
   .notHome {
     justify-content: flex-start;
     background-size: 100%;
-    background-position: 50% 88%;
+    background-position: 50% 115px;
   }
 
   .contact-page .notHome {

@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
-import { SelectedContext } from "../../contexts/SelectedContext";
+import React, { useState } from "react";
 import Option from "./Option";
 
-const Radios = ({ qnum }) => {
+const Radios = ({ qnum, answers, next }) => {
   const handleChecked = (name) => {
+    next();
     switch (name) {
       case "A":
         Achecked ? setAchecked(false) : setAchecked(true);
@@ -44,6 +44,7 @@ const Radios = ({ qnum }) => {
         checked={Achecked}
         handleChecked={handleChecked}
         name='A'
+        choice={answers.A}
         qnum={qnum}
       />
       <Option
@@ -51,6 +52,7 @@ const Radios = ({ qnum }) => {
         checked={Bchecked}
         handleChecked={handleChecked}
         name='B'
+        choice={answers.B}
         qnum={qnum}
       />
       <Option
@@ -58,6 +60,7 @@ const Radios = ({ qnum }) => {
         checked={Cchecked}
         handleChecked={handleChecked}
         name='C'
+        choice={answers.C}
         qnum={qnum}
       />
       <Option
@@ -65,6 +68,7 @@ const Radios = ({ qnum }) => {
         checked={Dchecked}
         handleChecked={handleChecked}
         name='D'
+        choice={answers.D}
         qnum={qnum}
       />
     </div>

@@ -62,7 +62,7 @@ const StResultsContextProvider = (props) => {
 
       return topFiveSts;
     } catch (err) {
-      console.log(err);
+      // Display error
     }
   };
 

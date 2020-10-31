@@ -2,11 +2,62 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   border-radius: 10px;
-  padding: 1rem 3rem;
+  padding: 2rem 3rem;
   background-color: white;
   -webkit-box-shadow: 0px 4px 11px 1px rgba(14, 14, 14, 0.137);
   -moz-box-shadow: 0px 4px 11px 1px rgba(14, 14, 14, 0.137);
   box-shadow: 0px 4px 11px 1px rgba(14, 14, 14, 0.137);
   margin-bottom: 2rem;
+  text-align: center;
+  transition: all 0.4s;
+  overflow-x: auto;
+}
+
+.tests-of-teacher:hover {
+  transform: scale(1.02);
+}
+
+.tests-of-teacher table {
+  width: 100%;
+  min-width: 900px;
+}
+
+.tests-of-teacher td,
+.tests-of-teacher th {
+  border: 1px solid #dddddd;
+  font-size: 1rem;
+  padding: 8px;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.tests-of-teacher .bordered-button {
+  background-color: rgb(155, 155, 155);
+}
+
+.tests-of-teacher .bordered-button:hover {
+  background-color: #50c97d;
+}
+
+.tests-of-teacher .btn-wrapper {
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+.tests-of-teacher .creator,
+.tests-of-teacher .subject,
+.tests-of-teacher .createdAt,
+.tests-of-teacher .number-of-questions {
+  display: flex;
+  flex-direction: column;
+  color: var(--secondary-color);
+  font-size: 1rem;
+}
+
+.tests-of-teacher .title {
+  color: var(--secondary-color);
+  font-weight: 600;
 }

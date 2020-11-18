@@ -110,3 +110,31 @@
   right: 23px;
   top: 441px;
 }
+
+.team-carousel-item .media-link-tg,
+.team-carousel-item .media-link-fc {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(77, 121, 107);
+}
+
+.team-carousel-item .media-link-fc {
+  background-color: rgb(255, 90, 90);
+}
+
+.team-carousel-item .position {
+  color: var(--secondary-color);
+}
+
+.our-team-carousel > div .team-carousel-item:nth-child(1) .name {
+  color: rgb(40, 122, 255);
+}
+
+.our-team-carousel > div .team-carousel-item:nth-child(2) .name {
+  color: rgb(154, 250, 0);
+}

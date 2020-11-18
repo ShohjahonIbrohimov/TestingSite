@@ -2,7 +2,6 @@ import React from "react";
 import StStats from "./StStats";
 import StudentInfo from "./StudentInfo";
 import TopboardCrown from "./TopboardCrown";
-
 import student1 from "../../assets/home/student1.jpg";
 import student2 from "../../assets/home/student2.jpg";
 import student3 from "../../assets/home/student3.jpg";
@@ -34,9 +33,7 @@ const TopboardStduent = ({
   return (
     <div className='topboard-content'>
       <div className='topboard-content-header'>
-        <div className='student-image' style={stImage}>
-          {/* <img src={require(`../../assets/home/${stImgUrl}.jpg`)} alt='' /> */}
-        </div>
+        <div className='student-image' style={stImage}></div>
         <TopboardCrown place={stPlace} />
       </div>
       <StudentInfo stName={stName} stAdress={stAdress} />

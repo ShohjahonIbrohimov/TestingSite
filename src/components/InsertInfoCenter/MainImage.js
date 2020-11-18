@@ -1,8 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Upload, message } from "antd";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { AcessTokenContext } from "../../contexts/accessTokenContext";
 import axios from "axios";
+
+function getBase64(img, callback) {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => callback(reader.result));
+  reader.readAsDataURL(img);
+}
 
 function beforeUpload(file) {
   const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
@@ -16,49 +21,48 @@ function beforeUpload(file) {
   return isJpgOrPng && isLt2M;
 }
 
-const Avatar = () => {
-  const [img, setimg] = useState({ loading: false });
-  const [file, setfile] = useState(null);
-  const { setAvatar, riseUpAccess, avatar } = useContext(AcessTokenContext);
+const MainImage = ({ setmainImage, riseUpAccess }) => {
+  const [state, setstate] = useState({ loading: false });
 
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
-      setimg({ loading: true });
+      setstate({ loading: true });
       return;
     }
     if (info.file.status === "done") {
-      // Get this url from response in real world.
-      //   setfile({ file: e.target.files[0] });
+      getBase64(info.file.originFileObj, (imageUrl) =>
+        setstate({
+          imageUrl,
+          loading: false,
+        })
+      );
     }
   };
 
-  const { loading, imageUrl } = img;
+  const postData = (file) => {
+    const formData = new FormData();
+    formData.append("photo", file.file);
+    axios
+      .post("https://itriceapp.apicrm.online/api/update/edu", formData, {
+        headers: file.headers,
+      })
+      .then((res) => {
+        const data = res.data;
+        setstate({ imageUrl: data.url, loading: false });
+        setmainImage(data.url);
+      })
+      .catch((error) => {
+        // Display error
+      });
+  };
+
+  const { loading, imageUrl } = state;
   const uploadButton = (
     <div>
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
       <div style={{ marginTop: 8 }}>Upload</div>
     </div>
   );
-
-  const postData = (file) => {
-    const formData = new FormData();
-    formData.append("photo", file.file);
-    console.log(file.file);
-    axios
-      .post("https://itriceapp.apicrm.online/api/update/avatar", formData, {
-        headers: file.headers,
-      })
-      .then((res) => {
-        console.log(res);
-        const data = res.data;
-
-        setimg({ imageUrl: data.url, loading: false });
-        setAvatar(data.url);
-      })
-      .catch((error) => {
-        // Display error
-      });
-  };
   return (
     <Upload
       name='avatar'
@@ -67,15 +71,13 @@ const Avatar = () => {
       showUploadList={false}
       customRequest={postData}
       beforeUpload={beforeUpload}
+      onChange={handleChange}
       headers={{
         "x-access-token": riseUpAccess.accessToken,
       }}
-      onChange={handleChange}
     >
       {imageUrl ? (
         <img src={imageUrl} alt='avatar' style={{ width: "100%" }} />
-      ) : avatar ? (
-        <img src={avatar} alt='avatar' style={{ width: "100%" }} />
       ) : (
         uploadButton
       )}
@@ -83,4 +85,4 @@ const Avatar = () => {
   );
 };
 
-export default Avatar;
+export default MainImage;

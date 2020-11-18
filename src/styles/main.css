@@ -40,4 +40,7 @@ a {
 @import "./createTest/CreateTest.css";
 /* TestCollections */
 @import "./testCollections/TestCollection.css";
+/* Admin */
+@import "./admin/Admin.css";
+
 @import "./MediaQuiries.css";

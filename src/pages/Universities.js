@@ -27,7 +27,17 @@ haqida ushbu ruknda o’qishingiz mumkin'
           />
           <ChooseRegion />
           <Route exact path='/universities' component={UniversitiesList} />
-          <Route exact path='/tatu' component={UniversityInfo} />
+          {/* <Route exact path='/tatu' component={UniversityInfo} />
+          <Route exact path='/tdyu' component={UniversityInfo} />
+          <Route exact path='/tdpu' component={UniversityInfo} />
+          <Route exact path='/tdau' component={UniversityInfo} />
+          <Route exact path='/tdtu' component={UniversityInfo} /> */}
+          <Route
+            exact
+            path='/universities/:id'
+            // render={(routerProps) => UniversityInfo}
+            component={UniversityInfo}
+          />
         </div>
       </Switch>
     </Router>

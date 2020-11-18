@@ -29,8 +29,6 @@ class QuestionsCarousel extends Component {
     };
 
     const goTo = (e) => {
-      // const index = parseInt(e.target.innerHTML);
-
       if (this.props.mathQuestions[e].selected === "") {
         this.slider.slickGoTo(e);
       } else {
@@ -42,7 +40,6 @@ class QuestionsCarousel extends Component {
       <div className='questions-carusel'>
         <div className='dots'>
           {this.props.mathQuestions.map((q, index) => {
-            console.log(q);
             return (
               <span className='dot' onClick={() => goTo(index)}>
                 {index + 1}

@@ -15,7 +15,8 @@ const AccessTokenContextProvider = (props) => {
   const [userRole, setuserRole] = useState(null);
   const [specialisation, setspecialisation] = useState("");
   const [studentID, setstudentID] = useState("");
-  const [userInfo, setuserInfo] = useState({})
+  const [userInfo, setuserInfo] = useState({});
+  const [connectedCenter, setconnectedCenter] = useState(null);
 
   useEffect(() => {
     if (riseUpAccess === null) {
@@ -42,7 +43,13 @@ const AccessTokenContextProvider = (props) => {
           console.log(res.data);
           const data = res.data;
           let avatarUrl = res.data.avatar;
-          setuserRole(res.data.rolesUser[0].name);
+          // set UserRole
+          if (data.rolesUser.length === 3) {
+            setuserRole("admin");
+          } else {
+            setuserRole(data.rolesUser[0]);
+          }
+          setconnectedCenter(data.educational);
           setspecialisation(res.data.specialisation);
           setAvatar(avatarUrl);
           setstudentID(res.data._id);
@@ -51,8 +58,7 @@ const AccessTokenContextProvider = (props) => {
             surname: data.surname,
             email: data.email,
             birthdate: data.birthdate,
-
-          })
+          });
         });
     }
   };
@@ -71,6 +77,8 @@ const AccessTokenContextProvider = (props) => {
         studentID,
         setRegistered,
         userInfo,
+        connectedCenter,
+        setconnectedCenter,
       }}
     >
       {props.children}

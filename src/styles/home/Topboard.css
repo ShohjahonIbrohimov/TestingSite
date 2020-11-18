@@ -34,7 +34,14 @@ h2 {
 
 .topboard-content {
   position: relative;
-  background-color: #fff;
+  background: linear-gradient(
+    212deg,
+    rgba(255, 205, 0, 1) 0%,
+    rgba(255, 205, 0, 1) 0%,
+    rgba(255, 246, 210, 1) 30%,
+    rgba(255, 226, 105, 1) 52%,
+    rgba(255, 205, 0, 1) 100%
+  );
   width: 300px;
   height: 310px;
   border-radius: 10px;

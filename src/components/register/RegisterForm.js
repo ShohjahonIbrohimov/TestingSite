@@ -1,26 +1,12 @@
 import React, { useState } from "react";
 import Button from "../global/Button";
 import Input from "./Input";
-
 import "antd/dist/antd.css";
 
 const Registration = ({ teacher, student, center, getInputs }) => {
-  // const [lastname, setLastname] = useState("");
-  // const [birthdate, setBirthdate] = useState("");
-  // const [specialisation, setSpecialisation] = useState("");
-  // const [centerName, setCenterName] = useState("");
-  // const [adress, setAdress] = useState("");
-
   const [firstName, setFirstName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-
-  // const handleLirstname = (e) => {
-  //   setLastname(e.target.value);
-  // };
-  // const handleSpec = (e) => {
-  //   setSpecialisation(e.target.value);
-  // };
 
   const handleFirstname = (e) => {
     setFirstName(e.target.value);

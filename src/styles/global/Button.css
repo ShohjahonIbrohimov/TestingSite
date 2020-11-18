@@ -88,3 +88,12 @@
 .bordered-button .fa-check-circle {
   margin-left: 1rem;
 }
+
+.disabled {
+  background-color: #b5b5b5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background-color: #b5b5b5;
+}

@@ -1,0 +1,23 @@
+.ant-modal .ant-form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ant-modal .ant-col-16 {
+  max-width: unset;
+  width: 100%;
+}
+
+.ant-modal .ant-picker,
+.ant-modal .ant-select {
+  width: 100%;
+}
+
+.ant-modal .ant-select {
+  margin-bottom: 1.5rem;
+}
+
+.ant-modal .ant-form-item-control {
+  margin: 0;
+}

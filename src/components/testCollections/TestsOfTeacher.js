@@ -19,7 +19,7 @@ const TestsOfTeacher = ({ creator, subject, createdAt, qnum, createID }) => {
   };
 
   return (
-    <div className='tests-of-teacher'>
+    <div className='test-collections-test-box'>
       {renderRedirect()}
       <table>
         <tr>

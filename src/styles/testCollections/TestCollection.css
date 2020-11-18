@@ -1,4 +1,4 @@
-.tests-of-teacher {
+.test-collections-test-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,17 +15,17 @@
   overflow-x: auto;
 }
 
-.tests-of-teacher:hover {
+.test-collections-test-box:hover {
   transform: scale(1.02);
 }
 
-.tests-of-teacher table {
+.test-collections-test-box table {
   width: 100%;
   min-width: 900px;
 }
 
-.tests-of-teacher td,
-.tests-of-teacher th {
+.test-collections-test-box td,
+.test-collections-test-box th {
   border: 1px solid #dddddd;
   font-size: 1rem;
   padding: 8px;
@@ -33,31 +33,31 @@
   color: var(--secondary-color);
 }
 
-.tests-of-teacher .bordered-button {
+.test-collections-test-box .bordered-button {
   background-color: rgb(155, 155, 155);
 }
 
-.tests-of-teacher .bordered-button:hover {
+.test-collections-test-box .bordered-button:hover {
   background-color: #50c97d;
 }
 
-.tests-of-teacher .btn-wrapper {
+.test-collections-test-box .btn-wrapper {
   display: flex;
   justify-content: center;
   border: none;
 }
 
-.tests-of-teacher .creator,
-.tests-of-teacher .subject,
-.tests-of-teacher .createdAt,
-.tests-of-teacher .number-of-questions {
+.test-collections-test-box .creator,
+.test-collections-test-box .subject,
+.test-collections-test-box .createdAt,
+.test-collections-test-box .number-of-questions {
   display: flex;
   flex-direction: column;
   color: var(--secondary-color);
   font-size: 1rem;
 }
 
-.tests-of-teacher .title {
+.test-collections-test-box .title {
   color: var(--secondary-color);
   font-weight: 600;
 }

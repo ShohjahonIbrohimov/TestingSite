@@ -24,6 +24,10 @@
   background-size: 50%;
 }
 
+.universities-page .notHome {
+  background-size: 40%;
+}
+
 .showcase-content {
   width: 50%;
   display: flex;

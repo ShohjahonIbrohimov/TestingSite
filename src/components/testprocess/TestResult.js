@@ -5,13 +5,14 @@ import { TestResultContext } from "../../contexts/TestResultContext";
 const TestResult = () => {
   const { testResults } = useContext(TestResultContext);
 
+  console.log(testResults);
   return (
     <div className='test-result'>
       <h1>Hozirgina ishlangan test natijalari</h1>
       <TakenTestData
         subject={testResults.subject}
         corrects={testResults.corrects}
-        incorrects={testResults.incorrects}
+        incorrects={testResults.inCorrects}
         total={testResults.totalQuestions}
       />
     </div>

@@ -90,3 +90,4 @@ const UniversityInfo = () => {
 };
 
 export default UniversityInfo;
+

@@ -3,10 +3,10 @@ import Button from "../global/Button";
 import RoundPic from "../global/RoundPic";
 import { Link } from "react-router-dom";
 
-const CenterCard = ({ name, text, id }) => {
+const CenterCard = ({ name, text, id, imgUrl }) => {
   return (
     <div className='teacher-card'>
-      <RoundPic borderColor='orange' />
+      <RoundPic borderColor='orange' imgUrl={imgUrl} />
       <div className='center-info'>
         <h2>
           {name} o'quv markazi <i className='far fa-star'></i>{" "}

@@ -6,6 +6,28 @@
   margin: 4rem 0;
 }
 
+.share-result .copy-button {
+  border-radius: 30px;
+  padding: 1rem 2rem;
+  /* font-size: 1.1rem; */
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  word-break: keep-all;
+  -webkit-box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.602);
+  -moz-box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.602);
+  box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.602);
+  transition: all 0.4s;
+  background-color: #54adff;
+}
+.share-result .copy-button:hover {
+  background-color: #459dee;
+}
+
 .share-result .shareResultsImg {
   width: 400px;
   margin: 0 4rem;
@@ -52,6 +74,6 @@
   flex-wrap: wrap;
 }
 
-.share-result .share-btns > div {
+.share-result .share-btns .share-btn {
   padding: 0.5rem;
 }

@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Tooltip } from "antd";
 
 import Button from "./Button";
 import showcaseSubjects from "../../assets/global/showcasBg-subjects.png";
@@ -9,6 +10,7 @@ import showcaseTeachers from "../../assets/global/showcasBg-teachers.png";
 import teacherTextBg from "../../assets/teachers/teacherTextBg.png";
 import contactBg from "../../assets/global/showcasBg-contact.png";
 import { AcessTokenContext } from "../../contexts/accessTokenContext";
+import { TakeTestContext } from "../../contexts/TakeTestContext";
 
 const Showcase = ({
   bgName,
@@ -19,7 +21,10 @@ const Showcase = ({
   btnText3,
   btnText4,
 }) => {
-  const { registered, userRole } = useContext(AcessTokenContext);
+  const { registered, userRole, connectedCenter } = useContext(
+    AcessTokenContext
+  );
+  const { allowTakeTest, setallowTakeTest } = useContext(TakeTestContext);
 
   const bgStyles = {
     backgroundImage: `url(${
@@ -34,6 +39,10 @@ const Showcase = ({
         : contactBg
     })`,
   };
+
+  useEffect(() => {
+    connectedCenter ? setallowTakeTest(true) : setallowTakeTest(false);
+  }, [connectedCenter]);
 
   const titleBg = {
     backgroundImage: `url${bgName === "teachers" ? teacherTextBg : ""}`,
@@ -56,17 +65,34 @@ const Showcase = ({
           <p>{text}</p>
           <div className='showcase-btns'>
             {registered && userRole === "student" && (
-              <Link to='/choose'>
-                {btnText1 && <Button text={btnText1} bgClass={"blueBtn"} />}
-              </Link>
+              <Tooltip
+                placement='bottom'
+                title={`${
+                  allowTakeTest
+                    ? "Siz o'quv markazga bog'langansiz va test ishlay olasiz"
+                    : "Test ishlash uchun yuqoridagi yonib turgan so'roq orqali qaysidir o'quv markazga bog'laning"
+                }`}
+                color='green'
+              >
+                <Link to={`${allowTakeTest ? "/choose" : "#"}`}>
+                  {btnText1 && (
+                    <Button
+                      text={btnText1}
+                      bgClass={`${allowTakeTest ? "blueBtn" : "disabled"}`}
+                    />
+                  )}
+                </Link>
+              </Tooltip>
             )}
-            {registered && userRole === "teacher" && (
-              <Link to='/create-test'>
-                {btnText3 && <Button text={btnText3} bgClass={"blueBtn"} />}
-              </Link>
-            )}
+
+            {registered &&
+              (userRole === "teacher" || userRole === "educational") && (
+                <Link to='/create-test'>
+                  {btnText3 && <Button text={btnText3} bgClass={"blueBtn"} />}
+                </Link>
+              )}
             {registered && userRole === "educational" && (
-              <Link to='/create-test'>
+              <Link to='/insert-info-center'>
                 {btnText4 && <Button text={btnText4} bgClass={"greenBtn"} />}
               </Link>
             )}

@@ -5,7 +5,11 @@ const PrezidentWords = () => {
   return (
     <div className='container'>
       <div className='prezident-words'>
-        <RoundPic borderColor='white' width={200} />
+        <RoundPic
+          borderColor='white'
+          imgUrl='https://uzbekembassy.com.my/images/hgiuyvgfkiuyhvgfoluhbv.jpg'
+          width={200}
+        />
         <div className='prez-saying'>
           <i className='fas fa-quote-left fa-2x'></i>
           <p>

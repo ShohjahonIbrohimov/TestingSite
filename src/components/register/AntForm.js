@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Form, Input, Button, DatePicker, Select } from "antd";
+import { Form, Input, Button, DatePicker, Select, Switch } from "antd";
+const { TextArea } = Input;
+
 const layout = {
   labelCol: {
     span: 8,
@@ -28,7 +30,14 @@ const config = {
   rules: [{ type: "object", required: true, message: "Please select time!" }],
 };
 
-const AntForm = ({ teacher, center, student, getInputs }) => {
+const AntForm = ({
+  teacher,
+  center,
+  student,
+  getInputs,
+  defaults,
+  aboutTeacher,
+}) => {
   const [loading, setloading] = useState(false);
   const [specialisation, setSpec] = useState("");
 
@@ -46,8 +55,11 @@ const AntForm = ({ teacher, center, student, getInputs }) => {
       specialisation,
       centerAdress: values.centerAdress,
       centerName: values.centerName,
+      allowTest: values.allowTest,
+      aboutTeacher: values.aboutTeacher,
     };
-    getInputs(userInfo);
+    console.log(userInfo);
+    getInputs(userInfo, setloading);
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -69,6 +81,7 @@ const AntForm = ({ teacher, center, student, getInputs }) => {
       validateMessages={validateMessages}
     >
       <Form.Item
+        initialValue={defaults ? defaults.username : ""}
         label='Username'
         name='username'
         rules={[
@@ -81,6 +94,7 @@ const AntForm = ({ teacher, center, student, getInputs }) => {
         <Input />
       </Form.Item>
       <Form.Item
+        initialValue={defaults ? defaults.firstname : ""}
         label='Ism'
         name='name'
         rules={[
@@ -93,6 +107,7 @@ const AntForm = ({ teacher, center, student, getInputs }) => {
         <Input />
       </Form.Item>
       <Form.Item
+        initialValue={defaults ? defaults.lastname : ""}
         label='Familiya'
         name='lastname'
         rules={[
@@ -119,6 +134,7 @@ const AntForm = ({ teacher, center, student, getInputs }) => {
       </Form.Item>
 
       <Form.Item
+        initialValue={defaults ? defaults.email : ""}
         name={["user", "email"]}
         label='Email'
         rules={[{ type: "email" }]}
@@ -126,17 +142,42 @@ const AntForm = ({ teacher, center, student, getInputs }) => {
         <Input />
       </Form.Item>
 
-      <Form.Item name='date-picker' label='DatePicker' {...config}>
+      <Form.Item
+        initialValue={defaults ? defaults.birthdate : ""}
+        name='date-picker'
+        label='DatePicker'
+        {...config}
+      >
         <DatePicker />
       </Form.Item>
+
+      {/* {adminAddRoles && ( */}
+      {aboutTeacher && (
+        <Form.Item name='aboutTeacher' label="O'qituvchi haqida">
+          <Input.TextArea />
+        </Form.Item>
+      )}
+      {/* )} */}
+
       {teacher && (
         <Select
+          initialValue={defaults ? defaults.specialisation : ""}
           defaultValue='Mutaxasisligingiz (fan) ni kiriting'
           onChange={handleChange}
         >
           <Option value='English'>Ingliz tili</Option>
           <Option value='Matematika'>Matematika</Option>
           <Option value='Fizika'>Fizika</Option>
+          <Option value='Ona tili va Adabiyot'>Ona tili va Adabiyot</Option>
+          <Option value='Tarix'>Tarix</Option>
+          <Option value='Biologiya'>Biologiya</Option>
+          <Option value='Kimyo'>Kimyo</Option>
+          <Option value='Geografiya'>Geografiya</Option>
+          <Option value='Informatika'>Informatika</Option>
+          <Option value='Nemis tili'>Nemis tili</Option>
+          <Option value='Rus tili'>Rus tili</Option>
+          <Option value='IT'>IT</Option>
+          <Option value='korean'>Koreys tili</Option>
         </Select>
       )}
 
@@ -166,6 +207,12 @@ const AntForm = ({ teacher, center, student, getInputs }) => {
           >
             <Input />
           </Form.Item>
+
+          {aboutTeacher && (
+            <Form.Item label='Test topshirishga ruxsat' name='allowTest'>
+              <Switch />
+            </Form.Item>
+          )}
         </div>
       )}
 

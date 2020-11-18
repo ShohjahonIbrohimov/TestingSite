@@ -7,6 +7,7 @@ export const StResultsContext = createContext();
 const StResultsContextProvider = (props) => {
   const [topTenSts, settopTenSts] = useState([]);
   const [topFiveSts, settopFiveSts] = useState([]);
+  const [allStudentResults, setallStudentResults] = useState([]);
 
   function compare(a, b) {
     const coefA = a.coeffiCient;
@@ -38,6 +39,8 @@ const StResultsContextProvider = (props) => {
           cancelToken: new axios.CancelToken((c) => (cancel = c)),
         })
         .then((res) => {
+          console.log(res);
+          setallStudentResults(res.data.data);
           let topStudents = res.data.data;
           // Get stduents with top: 1 and the rest into separate arrays
           let top1Students = topStudents.filter((student) => student.top === 1);
@@ -73,7 +76,9 @@ const StResultsContextProvider = (props) => {
   }, []);
 
   return (
-    <StResultsContext.Provider value={{ topTenSts, topFiveSts, getStResults }}>
+    <StResultsContext.Provider
+      value={{ topTenSts, topFiveSts, getStResults, allStudentResults }}
+    >
       {props.children}
     </StResultsContext.Provider>
   );

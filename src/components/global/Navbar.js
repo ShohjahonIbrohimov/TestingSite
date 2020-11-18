@@ -1,16 +1,24 @@
 import React, { useState, useEffect, useContext } from "react";
 import MobileNav from "./MobileNav";
 import NavLinks from "./NavLinks";
+import ConnectCenter from "./ConnectCenter";
 import ProfileDropDown from "../home/ProfileDropDown";
 import { AcessTokenContext } from "../../contexts/accessTokenContext";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import AddUniversCenters from "../admin/AddUniversCenters";
 
 const Navbar = () => {
   const [navOn, setnavOn] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [pageYoffset, setpageYoffset] = useState(0);
-  const { registered } = useContext(AcessTokenContext);
+  const {
+    registered,
+    userRole,
+    connectedCenter,
+    setconnectedCenter,
+    educational,
+  } = useContext(AcessTokenContext);
 
   const handleMNav = () => {
     navOn ? setnavOn(false) : setnavOn(true);
@@ -31,8 +39,17 @@ const Navbar = () => {
           <div className='logo'>
             <img src={require("../../assets/global/Untitled-2.png")} alt='' />
           </div>
-          <NavLinks />
-          <div className='language'>
+          <NavLinks userRole={userRole} registered={registered} />
+          {registered && userRole === "student" && (
+            <ConnectCenter
+              connectedCenter={connectedCenter}
+              setconnectedCenter={setconnectedCenter}
+            />
+          )}
+
+          {registered && userRole === "admin" && <AddUniversCenters />}
+
+          <div className='language' style={{ margin: "0 1rem" }}>
             <img
               src={require("../../assets/global/flag-button-round-250.png")}
               alt=''

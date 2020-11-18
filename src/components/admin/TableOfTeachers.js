@@ -1,15 +1,5 @@
 import React, { useState } from "react";
 import { Table, Input, InputNumber, Popconfirm, Form } from "antd";
-// const originData = [];
-
-// for (let i = 0; i < 5; i++) {
-//   originData.push({
-//     key: i.toString(),
-//     name: `Edrward ${i}`,
-//     age: 32,
-//     address: `London Park no. ${i}`,
-//   });
-// }
 
 const EditableCell = ({
   editing,
@@ -46,14 +36,17 @@ const EditableCell = ({
   );
 };
 
-const TableOfTeachers = () => {
+const TableOfTeachers = ({ teachers, setvisible, getDefaults }) => {
   const [form] = Form.useForm();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(teachers);
   const [editingKey, setEditingKey] = useState("");
 
   const isEditing = (record) => record.key === editingKey;
 
   const edit = (record) => {
+    console.log(record);
+    getDefaults(record);
+    setvisible(true);
     form.setFieldsValue({
       name: "",
       age: "",
@@ -90,25 +83,37 @@ const TableOfTeachers = () => {
 
   const columns = [
     {
-      title: "name",
-      dataIndex: "name",
+      title: "Ism",
+      dataIndex: "firstname",
       width: "25%",
       editable: true,
     },
     {
-      title: "age",
-      dataIndex: "age",
-      width: "15%",
+      title: "Familiya",
+      dataIndex: "lastname",
+      width: "25%",
       editable: true,
     },
     {
-      title: "address",
-      dataIndex: "address",
+      title: "Tug'ilgan kun",
+      dataIndex: "birthdate",
       width: "40%",
       editable: true,
     },
     {
-      title: "operation",
+      title: "Mutaxasisligi",
+      dataIndex: "specialisation",
+      width: "40%",
+      editable: true,
+    },
+    {
+      title: "Foydalanuvchi nomi",
+      dataIndex: "username",
+      width: "40%",
+      editable: true,
+    },
+    {
+      title: "",
       dataIndex: "operation",
       render: (_, record) => {
         const editable = isEditing(record);
@@ -129,7 +134,7 @@ const TableOfTeachers = () => {
           </span>
         ) : (
           <a disabled={editingKey !== ""} onClick={() => edit(record)}>
-            Edit
+            Tahrirlash
           </a>
         );
       },
@@ -165,7 +170,6 @@ const TableOfTeachers = () => {
 
   return (
     <Form form={form} component={false}>
-      <button onClick={handleAdd}>O'qituvchi qo'shish</button>
       <Table
         components={{
           body: {
@@ -173,7 +177,7 @@ const TableOfTeachers = () => {
           },
         }}
         bordered
-        dataSource={data}
+        dataSource={teachers}
         columns={mergedColumns}
         rowClassName='editable-row'
         pagination={{

@@ -7,6 +7,7 @@ import "../../styles/univers/CarouselUnivers.css";
 import univer1 from "../../assets/univers/univer1.jpg";
 import univer2 from "../../assets/univers/univer2.jpg";
 // import univer3 from "../../assets/univers/univer3.jpg";
+import { Link } from "react-router-dom";
 
 const CarouselUnivers = () => {
   const settings = {
@@ -48,7 +49,9 @@ const CarouselUnivers = () => {
                       rejasi qanday?
                     </p>
                   </div>
-                  <button className='batafsil'>Batafsil o'qing</button>
+                  <Link to='/batafsil'>
+                    <button className='batafsil'>Batafsil o'qing</button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,21 +1,23 @@
 import React from "react";
 import Button from "../global/Button";
 import CarouselUnivers from "../universities/CarouselUnivers";
+import { Link } from "react-router-dom";
 
 const Center = (centers, routerProps) => {
-  let centerID = parseInt(routerProps.match.params.id);
-
-  let center = centers.filter((center) => center.id === centerID);
-  console.log(center[0].fullname);
+  let centerID = routerProps.match.params.id;
+  let center = centers.filter((center) => center._id === centerID);
+  const centerImg = {
+    backgroundImage: `url(${center[0].mainImage})`,
+  };
 
   return (
     <div className='center'>
       <div className='container'>
         <header>
-          <div className='center-img'></div>
+          <div className='center-img' style={centerImg}></div>
           <div className='brief-about-center'>
             <div className='stars-cont'>
-              <h1>{center[0].fullname}</h1>
+              <h1>{center[0].centerName}</h1>
               <div className='stars'>
                 <i className='far fa-star'></i>
                 <i className='far fa-star'></i>
@@ -36,13 +38,15 @@ const Center = (centers, routerProps) => {
               doloribus atque recusandae aut quidem! Lorem ipsum dolor sit amet
               consectetur adipisicing elit. Repellendus, impedit.
             </p>
-            <Button
-              text='ortga'
-              bgClass='orange'
-              arrowBack={true}
-              px={0.5}
-              py={2}
-            />
+            <Link to='/centers'>
+              <Button
+                text='ortga'
+                bgClass='orange'
+                arrowBack={true}
+                px={0.5}
+                py={2}
+              />
+            </Link>
           </div>
         </header>
         <div className='about-center'>

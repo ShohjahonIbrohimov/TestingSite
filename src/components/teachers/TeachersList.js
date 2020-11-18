@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import TeacherCard from "./TeacherCard";
+import { TeachersContext } from "../../contexts/TeachersContext";
 
-const TeachersList = ({ teachers }) => {
+const TeachersList = ({ teachers, setteacherShow }) => {
+  // const { teachers } = useContext(TeachersContext);
+  console.log(teachers);
   return (
     <div className='container'>
       <div className='teachers-list'>
-        {teachers.map((teacher) => {
+        {teachers.map((teacher, i) => {
           return (
             <TeacherCard
-              key={teacher.id}
-              name={teacher.fullname}
-              text={teacher.text}
-              id={teacher.id}
+              setteacherShow={setteacherShow}
+              key={i}
+              name={teacher.name}
+              // name={teacher.lastname}
+              text={teacher.aboutTeacher}
+              id={i}
             />
           );
         })}

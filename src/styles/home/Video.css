@@ -48,7 +48,7 @@
   width: 72%;
   /* min-width: 53 0px; */
   position: absolute;
-  z-index: 1000;
+  z-index: 997;
   transition: all 0.8s;
   top: -56%;
   left: -14%;
@@ -100,7 +100,7 @@
   .video-wrapper .videoBg {
     width: 87%;
     position: absolute;
-    z-index: 1000;
+    z-index: 997;
     transition: all 0.8s;
     top: -17%;
     left: -34%;

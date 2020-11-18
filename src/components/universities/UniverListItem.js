@@ -31,7 +31,11 @@ const UniverListItem = ({ univerName, acronym }) => {
   };
 
   return (
-    <Link to={`/${acronym}`} className='univer-list-item' style={bgStyle}>
+    <Link
+      to={`universities/${acronym}`}
+      className='univer-list-item'
+      style={bgStyle}
+    >
       <div className='showcase-text'>
         <span className='univerName'>{univerName}</span>
       </div>

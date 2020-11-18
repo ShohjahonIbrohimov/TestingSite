@@ -20,8 +20,6 @@ const ChooseSubBtn = ({
 
   const handleClick = () => {
     setSelected(name);
-    // selected ? setselected(false) : setselected(true);
-    // selected ? settestTime(testTime - 60) : settestTime(testTime + 60);
   };
 
   return (

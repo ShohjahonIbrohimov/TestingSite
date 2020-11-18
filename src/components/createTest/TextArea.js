@@ -5,7 +5,6 @@ const { TextArea } = Input;
 
 const TextAreaWrap = ({ placeholder, Isquestion, getQandAs }) => {
   const [value, setvalue] = useState("");
-
   const rowSize = Isquestion ? 10 : 3;
 
   const onChange = ({ target: { value } }) => {

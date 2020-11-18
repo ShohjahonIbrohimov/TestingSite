@@ -2,16 +2,18 @@ import React from "react";
 import CenterCard from "./CenterCard";
 
 const TeachersList = ({ centers }) => {
+  console.log(centers);
   return (
     <div className='teachers-list'>
       <div className='container'>
         {centers.map((center) => {
           return (
             <CenterCard
-              key={center.id}
-              name={center.fullname}
-              text={center.text}
-              id={center.id}
+              key={center._id}
+              name={center.centerName}
+              text={center.examDesc}
+              id={center._id}
+              imgUrl={center.mainImage}
             />
           );
         })}

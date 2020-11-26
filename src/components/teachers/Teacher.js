@@ -7,9 +7,6 @@ import { Link } from "react-router-dom";
 
 const Teacher = (teachers, routerProps, setteacherShow) => {
   let teacherID = parseInt(routerProps.match.params.id);
-  console.log(teachers);
-
-  let teacher = teachers.filter((teacher) => teacher.id === teacherID);
 
   const subNames = [
     { name: "Fizika", id: 1 },
@@ -39,7 +36,9 @@ const Teacher = (teachers, routerProps, setteacherShow) => {
           </div>
           <div className='about-teacher'>
             <span>O'qituvchi haqida</span>
-            <h1>{teacher[0].fullname}</h1>
+            <h1>
+              {teachers[0].name} {teachers[0].surname}
+            </h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptatum, voluptatibus ad ratione sit optio laudantium commodi

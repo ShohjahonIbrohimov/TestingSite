@@ -20,7 +20,7 @@ const ToptenStudents = () => {
               adress={st.сity}
               coeffiCient={st.coeffiCient}
               correctAnswers={st.correctAnswers}
-              color={st.top > 0 && st.top <= 3 ? "#ffc259" : "#9acd5d"}
+              color={st.top > 0 && st.top <= 3 ? "#b9b9b9" : "#d6835d"}
             />
           );
         })}

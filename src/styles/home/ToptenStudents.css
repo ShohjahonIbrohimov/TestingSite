@@ -9,27 +9,8 @@
   -webkit-box-shadow: 0px 4px 11px 1px rgba(14, 14, 14, 0.137);
   -moz-box-shadow: 0px 4px 11px 1px rgba(14, 14, 14, 0.137);
   box-shadow: 0px 4px 11px 1px rgba(14, 14, 14, 0.137);
-  background: linear-gradient(
-    212deg,
-    rgba(193, 122, 60, 1) 0%,
-    rgba(237, 200, 168, 1) 19%,
-    rgba(193, 122, 60, 1) 100%
-  );
   transition: all 0.4s;
-}
-
-.topten-cards .container:nth-child(1) .topten-card,
-.topten-cards .container:nth-child(2) .topten-card,
-.topten-cards .container:nth-child(3) .topten-card,
-.topten-cards .container:nth-child(4) .topten-card,
-.topten-cards .container:nth-child(5) .topten-card {
-  background: linear-gradient(
-    212deg,
-    rgba(148, 148, 148, 1) 0%,
-    rgba(237, 237, 237, 1) 28%,
-    rgba(153, 153, 153, 1) 75%,
-    rgba(159, 159, 159, 1) 100%
-  );
+  background: #fff;
 }
 
 .topten-card:hover,

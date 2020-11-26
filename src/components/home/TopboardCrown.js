@@ -8,9 +8,6 @@ const TopboardCrown = ({ place }) => {
         src={require(`../../assets/home/top${place}Crown.png`)}
         alt=''
       />
-      <div className='place'>
-        <h1>{place}</h1>
-      </div>
     </div>
   );
 };
